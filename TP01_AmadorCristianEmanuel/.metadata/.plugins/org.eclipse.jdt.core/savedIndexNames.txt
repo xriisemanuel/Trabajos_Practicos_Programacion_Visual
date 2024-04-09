@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\xriis\OneDrive\Documentos\01 Programacion Visual\Trabajo Practico 01\TP01_AmadorCristianEmanuel\.metadata\.plugins\org.eclipse.jdt.core
+909718120.index
+1865797976.index
+1072949925.index
