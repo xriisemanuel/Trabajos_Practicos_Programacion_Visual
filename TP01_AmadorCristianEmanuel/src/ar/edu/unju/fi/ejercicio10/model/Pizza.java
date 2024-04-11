@@ -6,9 +6,9 @@ public class Pizza {
 	private double price;
 	private double area;
 	private boolean special_ingredients;
-	private final int special_in_20 = 500;
-	private final int special_in_30 = 750;
-	private final int special_in_40 = 1000;
+	private final int SPECIAL_IN_20 = 500; //corregido
+	private final int SPECIAL_IN_30 = 750;
+	private final int SPECIAL_IN_40 = 1000;
 	
 	public Pizza() {
 		
@@ -39,27 +39,27 @@ public class Pizza {
 		this.special_ingredients = special_ingredients;
 	}
 	
-	public double calcularPrecio(int option, boolean special) {
+	public double calcularPrecio(int option) {//nueva corrección de clase, aplicado. 
 	    double precioBase = 0;
 	    double precioEspecial = 0;
 
 	    switch (option) {
 	        case 1:
 	            precioBase = 4500;
-	            if (special) {
-	                precioEspecial = special_in_20;
+	            if (special_ingredients) {
+	                precioEspecial = SPECIAL_IN_20;
 	            }
 	            break;
 	        case 2:
 	            precioBase = 4800;
-	            if (special) {
-	                precioEspecial = special_in_30;
+	            if (special_ingredients) {
+	                precioEspecial = SPECIAL_IN_30;
 	            }
 	            break;
 	        case 3:
 	            precioBase = 5500;
-	            if (special) {
-	                precioEspecial = special_in_40;
+	            if (special_ingredients) {
+	                precioEspecial = SPECIAL_IN_40;
 	            }
 	            break;
 	        default:

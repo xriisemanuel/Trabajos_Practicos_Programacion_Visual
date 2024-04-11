@@ -7,21 +7,23 @@ import ar.edu.unju.fi.ejercicio10.model.Pizza;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		int opcion = 0;
 		char answer = 'n';
 		
 		Scanner sc = new Scanner(System.in);
 		
+		Pizza pizza; //nueva correccion y ahorro de memoria - Patron de diseño - Singleton
+		
 		for (int i = 1; i < 4; i ++) {
 			
-			Pizza pizza = new Pizza();
+			pizza = new Pizza(); //se sobre escribe el objeto
 			
 			System.out.println("---------------------------");
 			System.out.println("\n* Detalles del pedido *");
 			
 			do {
-				
+				//public static void getOption(int option){}
 				System.out.println("Ingrese 1 - Pizza pequeña de diametro: 20um");
 				System.out.println("Ingrese 2 - Pizza Mediana de diametro: 30um");
 				System.out.println("Ingrese 3 - Pizza Grande de diametro: 40um");
@@ -31,9 +33,12 @@ public class Main {
 				if (opcion < 1 || opcion > 3) {
 					System.out.println("¡Error de opcion elegida, intente nuevamente!");
 				}
+				
 			} while (opcion < 1 || opcion > 3);
 			
-		    switch (opcion) {
+			//getOption(option);
+			
+		    switch (opcion) { //funcion setDiameter(Pizza pizza, int option){}
 	        case 1:
 	        		pizza.setDiameter(20);
 	            break;
@@ -48,12 +53,13 @@ public class Main {
 			System.out.println("¿lleva ingredientes especiales? s/n");
 			answer = sc.next().charAt(0);
 			
+			//funcion setSpecialIngredients(Pizza pizza, char answer){}
 			if (answer == 's') {
 				pizza.setSpecial_ingredients(true);
-				pizza.setPrice(pizza.calcularPrecio(opcion, true));
+				pizza.setPrice(pizza.calcularPrecio(opcion));
 			} else {
 				pizza.setSpecial_ingredients(false);
-				pizza.setPrice(pizza.calcularPrecio(opcion, false));
+				pizza.setPrice(pizza.calcularPrecio(opcion));
 			}
 			
 			pizza.setArea(pizza.calcularArea(pizza.getDiameter()));

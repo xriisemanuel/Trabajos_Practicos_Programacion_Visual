@@ -11,7 +11,8 @@ public class Main {
 		String name;
 		String code;
 		double price;
-		int off = -1, counter = 3;
+		double off = -1d; 
+		int counter = 3;
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -45,13 +46,8 @@ public class Main {
 			product.setCode(code);
 			product.setPrice(price);
 			product.setOff(off);
-			
-			System.out.println("\n* Mostrando el precio oficial del producto *");
-			System.out.println(product.toString());
-			
-			product.setPrice(product.calcularDescuento(price, off));
-			
-			System.out.println("\n* Mostrando el precio con Descuento en el producto *");
+			product.setOffprice(product.calcularDescuento(off));
+			System.out.println();
 			System.out.println(product.toString());
 			
 			counter --;

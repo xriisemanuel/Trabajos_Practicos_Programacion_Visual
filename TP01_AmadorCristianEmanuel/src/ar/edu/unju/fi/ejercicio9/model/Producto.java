@@ -5,13 +5,14 @@ public class Producto {
 	private String name;
 	private String code;
 	private double price;
-	private int off;
+	private double offprice;
+	private double off;
 	
 	public Producto() {
 		
 	}
 	
-	public Producto(String name, String code, double price, int off) {
+	public Producto(String name, String code, double price, double off) {
 		super();
 		this.name = name;
 		this.code = code;
@@ -43,30 +44,38 @@ public class Producto {
 		this.price = price;
 	}
 
-	public int getOff() {
+	public double getOff() {
 		return off;
 	}
 
-	public void setOff(int off) {
+	public void setOff(double off) {
 		this.off = off;
 	}
 	
-	public double calcularDescuento( double price, int off) {
+	
+	public double getOffprice() {
+		return offprice;
+	}
+
+	public void setOffprice(double offprice) {
+		this.offprice = offprice;
+	}
+
+	public double calcularDescuento(double off) {
 		
 		if (off > 0) {
 			
-			return price - (double)(off * price)/100;
+			return price - (off * price)/100;
 			
 		} else {
 			
-			return price;
+			return 0d;
 		}
-		
 	}
 
 	@Override
 	public String toString() {
-		return "\nDetalles del Producto: " + name + "\nCodigo: " + code + "\nPrecio: " + price + "$\nDescuento Aplicado: " + off + "%";
+		return "\nDetalles del Producto: " + name + "\nCodigo: " + code + "\nPrecio: " + price + "$\nDescuento Aplicado: " + off + "%" + "\nPrecio con descuento: $" + offprice;
 	}
 	
 	
