@@ -26,10 +26,10 @@ public class Persona {
 		this.date = date;
 	}
 	
-	public int years(int year) {
+	public int years() {
 		
 		Calendar hoy = Calendar.getInstance();
-		return hoy.get(Calendar.YEAR) - year;
+		return hoy.get(Calendar.YEAR) - date.get(Calendar.YEAR);
 		
 	}
 	
@@ -115,28 +115,30 @@ public class Persona {
 		}
 	}
 	
-	public String yearStation(Calendar date) {
+	public String yearStation() {
 		
 		Calendar fecha_inicio = Calendar.getInstance();
 		Calendar fecha_fin = Calendar.getInstance();
 		
-		fecha_inicio.set(date.get(Calendar.YEAR),2,21);
-		fecha_fin.set(date.get(Calendar.YEAR),5,20);
+		int year = date.get(Calendar.YEAR);
+		
+		fecha_inicio.set(year,2,21);
+		fecha_fin.set(year,5,20);
 		if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 			return "Otonio";
 		} else {
-			fecha_inicio.set(date.get(Calendar.YEAR),5,21);
-			fecha_fin.set(date.get(Calendar.YEAR),8,20);
+			fecha_inicio.set(year,5,21);
+			fecha_fin.set(year,8,20);
 			if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 				return "Invierno";
 			} else {
-				fecha_inicio.set(date.get(Calendar.YEAR),8,21);
-				fecha_fin.set(date.get(Calendar.YEAR),11,20);
+				fecha_inicio.set(year,8,21);
+				fecha_fin.set(year,11,20);
 				if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 					return "Primavera";
 				} else {
-					fecha_inicio.set(date.get(Calendar.YEAR),11,21);
-					fecha_fin.set(date.get(Calendar.YEAR),2,20);
+					fecha_inicio.set(year,11,21);
+					fecha_fin.set(year,2,20);
 					if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 						return "Verano";
 					} else {
@@ -149,7 +151,7 @@ public class Persona {
 
 	@Override
 	public String toString() {
-		return "\nDatos de: " + name + "\nFecha nacimiento: " + date.get(Calendar.DAY_OF_MONTH)+"/"+date.get(Calendar.MONTH) +"/"+date.get(Calendar.YEAR);
+		return "\nDatos de: " + name + "\nFecha de nacimiento: " + date.get(Calendar.DAY_OF_MONTH)+ "/"+ (date.get(Calendar.MONTH) + 1 )+"/"+date.get(Calendar.YEAR) + "\nEdad: " + years() + "\nSigno del Zodiaco: " + zodiacSign() + "\nEstacion: " + yearStation();
 	}
 	
 	

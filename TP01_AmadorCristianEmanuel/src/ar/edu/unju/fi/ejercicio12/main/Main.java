@@ -31,7 +31,7 @@ public class Main {
 		calendario.setTime(fecha);
 		unaPersona.setDate(calendario);
 		sc.close();
-		System.out.println(unaPersona.toString()+ "\nSigno Zodiacal: "+unaPersona.zodiacSign()+ "\nEstacion: "+ unaPersona.yearStation(calendario));
+		System.out.println(unaPersona.toString());
 	
 	}
 
