@@ -32,29 +32,30 @@ public class Main {
 		unaPersona.setDate(calendario);
 		sc.close();
 		System.out.println(unaPersona.toString()+ "\nSigno Zodiacal: "+unaPersona.zodiacSign()+ "\nEstacion: "+ unaPersona.yearStation(calendario));
-		//System.out.println(unaPersona.toS+ "\nSigno Zodiacal: "+unaPersona.zodiacSign(unaPersona.getDate())+ "\nEstacion: "+ unaPersona.yearStation(unaPersona.getDate())tring()+"\n Edad: "+unaPersona.years(unaPersona.getDate().get(Calendar.YEAR)));
-		/*
-		DateFormat formateador = new SimpleDateFormat("dd/M/yy");
-		
-		Date fecha = formateador.parse("11/4/2024");
-		
-		Calendar calendario = new GregorianCalendar();
-		
-		calendario.setTime(fecha);
-		
-		unaPersona.setName("XriisEmanuel");
-		unaPersona.setDate(calendario);
-		
-		
-		
-		System.out.println("año Nacimiento: "+unaPersona.getDate().get(Calendar.YEAR));
-		System.out.println("mes Nacimiento: "+(1 + unaPersona.getDate().get(Calendar.MONTH)));
-		System.out.println("dia Nacimiento: "+unaPersona.getDate().get(Calendar.DAY_OF_MONTH));
-		
-		int year = unaPersona.getDate().get(Calendar.YEAR);
-		
-		unaPersona.getDate().compareTo(calendario);*/
-		
+	
 	}
 
 }
+//Visto en clases
+//System.out.println(unaPersona.toS+ "\nSigno Zodiacal: "+unaPersona.zodiacSign(unaPersona.getDate())+ "\nEstacion: "+ unaPersona.yearStation(unaPersona.getDate())tring()+"\n Edad: "+unaPersona.years(unaPersona.getDate().get(Calendar.YEAR)));
+/*
+DateFormat formateador = new SimpleDateFormat("dd/M/yy");
+
+Date fecha = formateador.parse("11/4/2024");
+
+Calendar calendario = new GregorianCalendar();
+
+calendario.setTime(fecha);
+
+unaPersona.setName("XriisEmanuel");
+unaPersona.setDate(calendario);
+
+
+
+System.out.println("año Nacimiento: "+unaPersona.getDate().get(Calendar.YEAR));
+System.out.println("mes Nacimiento: "+(1 + unaPersona.getDate().get(Calendar.MONTH)));
+System.out.println("dia Nacimiento: "+unaPersona.getDate().get(Calendar.DAY_OF_MONTH));
+
+int year = unaPersona.getDate().get(Calendar.YEAR);
+
+unaPersona.getDate().compareTo(calendario);*/

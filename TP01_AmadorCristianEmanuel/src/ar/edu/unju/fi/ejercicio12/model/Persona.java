@@ -38,63 +38,65 @@ public class Persona {
 		Calendar fecha_inicio = Calendar.getInstance();
 		Calendar fecha_fin = Calendar.getInstance();
 		
-		fecha_inicio.set(date.get(Calendar.YEAR),2,21);
-		fecha_fin.set(date.get(Calendar.YEAR),3,19);
+		int year = date.get(Calendar.YEAR);
+		
+		fecha_inicio.set(year,2,21);
+		fecha_fin.set(year,3,19);
 		if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 			return "Aries";
 		} else {
-			fecha_inicio.set(date.get(Calendar.YEAR),3,20);
-			fecha_fin.set(date.get(Calendar.YEAR),4,20);
+			fecha_inicio.set(year,3,20);
+			fecha_fin.set(year,4,20);
 			if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 				return "Tauro";
 			} else {
-				fecha_inicio.set(date.get(Calendar.YEAR),4,21);
-				fecha_fin.set(date.get(Calendar.YEAR),5,20);
+				fecha_inicio.set(year,4,21);
+				fecha_fin.set(year,5,20);
 				if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 					return "Geminis";
 				} else {
-					fecha_inicio.set(date.get(Calendar.YEAR),5,21);
-					fecha_fin.set(date.get(Calendar.YEAR),6,22);
+					fecha_inicio.set(year,5,21);
+					fecha_fin.set(year,6,22);
 					if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 						return "Cancer";
 					} else {
-						fecha_inicio.set(date.get(Calendar.YEAR),6,23);
-						fecha_fin.set(date.get(Calendar.YEAR),7,22);
+						fecha_inicio.set(year,6,23);
+						fecha_fin.set(year,7,22);
 						if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 							return "Leo";
 						} else {
-							fecha_inicio.set(date.get(Calendar.YEAR),6,23);
-							fecha_fin.set(date.get(Calendar.YEAR),7,22);
+							fecha_inicio.set(year,6,23);
+							fecha_fin.set(year,7,22);
 							if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 								return "Virgo";
 							} else {
-								fecha_inicio.set(date.get(Calendar.YEAR),7,23);
-								fecha_fin.set(date.get(Calendar.YEAR),9,22);
+								fecha_inicio.set(year,7,23);
+								fecha_fin.set(year,9,22);
 								if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 									return "Libra";
 								} else {
-									fecha_inicio.set(date.get(Calendar.YEAR),9,23);
-									fecha_fin.set(date.get(Calendar.YEAR),10,21);
+									fecha_inicio.set(year,9,23);
+									fecha_fin.set(year,10,21);
 									if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 										return "Escorpio";
 									} else {
-										fecha_inicio.set(date.get(Calendar.YEAR),10,22);
-										fecha_fin.set(date.get(Calendar.YEAR),11,21);
+										fecha_inicio.set(year,10,22);
+										fecha_fin.set(year,11,21);
 										if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 											return "Sagitario";
 										} else {
-											fecha_inicio.set(date.get(Calendar.YEAR),11,22);
-											fecha_fin.set(date.get(Calendar.YEAR),0,19);
+											fecha_inicio.set(year,11,22);
+											fecha_fin.set(year,0,19);
 											if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 												return "Capricornio";
 											} else {
-												fecha_inicio.set(date.get(Calendar.YEAR),0,20);
-												fecha_fin.set(date.get(Calendar.YEAR),1,19);
+												fecha_inicio.set(year,0,20);
+												fecha_fin.set(year,1,19);
 												if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 													return "Acuario";
 												} else {
-													fecha_inicio.set(date.get(Calendar.YEAR),1,20);
-													fecha_fin.set(date.get(Calendar.YEAR),2,20);
+													fecha_inicio.set(year,1,20);
+													fecha_fin.set(year,2,20);
 													if ((date.after(fecha_inicio)) && (date.before(fecha_fin))) {
 														return "Piscis";
 													} else {
