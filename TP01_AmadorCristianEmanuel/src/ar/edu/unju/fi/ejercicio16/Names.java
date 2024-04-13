@@ -5,10 +5,9 @@ import java.util.Scanner;
 public class Names {
 
 	private String[] names = new String[5];
-	private int delet;
+	private byte delet;
 	
 	public Names() {
-		delet = -1;
 	}
 
 	public String[] getNames() {
@@ -23,7 +22,7 @@ public class Names {
 		return delet;
 	}
 
-	public void setDelet(int delet) {
+	public void setDelet(byte delet) {
 		this.delet = delet;
 	}
 	
@@ -35,9 +34,8 @@ public class Names {
 			
 			System.out.print("Ingrese el [" + (i + 1) + "] nombre: ");
 			names[i] = sc.next();
-			
+			sc.nextLine();
 		}
-		sc.close();
 	}
 	
 	public void show_names() {
@@ -57,33 +55,34 @@ public class Names {
 		return names.length;
 	}
 	
-	/*
-	public void pos_To_Delet() { //consultar
-		int delet;
-		char r;
+	public byte pos_delet() {
+		byte del = 0;
+		char answer;
 		Scanner sc = new Scanner(System.in);
+		
 		do {
-			
+			//sc.nextLine();
 			System.out.print("Ingrese la posicion del nombre que desea eliminar: ");
-			delet = sc.nextInt();
+			del = sc.nextByte();
+			sc.nextLine();
 			
-			if (delet < 1 || delet > 5) {
+			if (del < 1 || del > 5) {
 				
 				System.out.println("Error, debe ingresar una posicion valida");
 				System.out.println("¿Desea continuar? s/n: ");
-				r = sc.next().charAt(0);
+				answer = sc.next().charAt(0);
 				
 			} else {
 				
-				r = 'n';
-				this.delet = delet;
+				answer = 'n';
 			}
 			
-		} while (r == 's');
+		} while (answer == 's');
 		
-		sc.close();
+		//sc.close();
+		return del;
 	}
-	*/
+	
 	public void deleting() {
 		
 		for (int i = 0; i < names.length ; i++) {
