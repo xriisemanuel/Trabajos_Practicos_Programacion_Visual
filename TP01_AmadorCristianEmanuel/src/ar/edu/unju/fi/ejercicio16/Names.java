@@ -42,6 +42,8 @@ public class Names {
 		
 		int j = 0;
 		
+		System.out.println("Mostrando los nombres: " + "\n");
+		
 		while( j < names.length ) {
 			
 			System.out.print("[" + (j + 1) + "]: " + names[j] + " ");

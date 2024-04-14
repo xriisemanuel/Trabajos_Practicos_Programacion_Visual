@@ -5,7 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		String country_name;
-		int age;
+		byte age;
 		float build_high;
 		float product_price;
 		long phone_number;

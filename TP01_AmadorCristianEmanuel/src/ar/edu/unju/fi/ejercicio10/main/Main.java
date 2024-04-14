@@ -8,7 +8,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		int opcion = 0;
+		byte opcion = 0;
 		char answer = 'n';
 		
 		Scanner sc = new Scanner(System.in);
@@ -20,15 +20,16 @@ public class Main {
 			pizza = new Pizza(); //se sobre escribe el objeto
 			
 			System.out.println("---------------------------");
-			System.out.println("\n* Detalles del pedido *");
+			System.out.println("\n* Detalles del NUEVO pedido *");
 			
 			do {
 				//public static void getOption(int option){}
+				//sc.next();
 				System.out.println("Ingrese 1 - Pizza pequeña de diametro: 20um");
 				System.out.println("Ingrese 2 - Pizza Mediana de diametro: 30um");
 				System.out.println("Ingrese 3 - Pizza Grande de diametro: 40um");
 				System.out.print("Ingrese una opcion: ");
-				opcion = sc.nextInt();
+				opcion = sc.nextByte();
 				
 				if (opcion < 1 || opcion > 3) {
 					System.out.println("¡Error de opcion elegida, intente nuevamente!");
@@ -62,9 +63,9 @@ public class Main {
 				pizza.setPrice(pizza.calcularPrecio(opcion));
 			}
 			
-			pizza.setArea(pizza.calcularArea(pizza.getDiameter()));
+			pizza.setArea((float)pizza.calcularArea(pizza.getDiameter()));
 			
-			System.out.println(pizza.toString(i));
+			System.out.println(pizza.toString((byte)i));
 		}
 		
 		sc.close();

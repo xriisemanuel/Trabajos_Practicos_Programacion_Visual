@@ -11,7 +11,7 @@ public class Main {
 		
 //presento la opcion uno de desarrollo, la opcion 2 se encuentra al final del codigo...
 		
-		int opcion = 0;
+		byte opcion = 0;
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -19,7 +19,7 @@ public class Main {
 		System.out.println("Ingrese 2 -> Crear Objeto con constructor parametrizado.");
 		System.out.println("Ingrese 3 -> Crear Objeto con constructor sin definir la provincia.");
 		System.out.print("Ingrese una opcion para continuar: ");
-		opcion = sc.nextInt();
+		opcion = sc.nextByte();
 		
 		switch (opcion) {
 		

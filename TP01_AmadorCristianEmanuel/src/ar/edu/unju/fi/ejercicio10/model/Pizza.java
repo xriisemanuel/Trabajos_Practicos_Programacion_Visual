@@ -2,34 +2,34 @@ package ar.edu.unju.fi.ejercicio10.model;
 
 public class Pizza {
 	
-	private double diameter;
-	private double price;
-	private double area;
+	private float diameter;
+	private float price;
+	private float area;
 	private boolean special_ingredients;
-	private final int SPECIAL_IN_20 = 500; //corregido
-	private final int SPECIAL_IN_30 = 750;
-	private final int SPECIAL_IN_40 = 1000;
+	private final short SPECIAL_IN_20 = 500;
+	private final short SPECIAL_IN_30 = 750;
+	private final short SPECIAL_IN_40 = 1000;
 	
 	public Pizza() {
 		
 	}
 	
-	public double getDiameter() {
+	public float getDiameter() {
 		return diameter;
 	}
-	public void setDiameter(double diameter) {
+	public void setDiameter(float diameter) {
 		this.diameter = diameter;
 	}
-	public double getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
-	public double getArea() {
+	public float getArea() {
 		return area;
 	}
-	public void setArea(double area) {
+	public void setArea(float area) {
 		this.area = area;
 	}
 	public boolean isSpecial_ingredients() {
@@ -39,9 +39,9 @@ public class Pizza {
 		this.special_ingredients = special_ingredients;
 	}
 	
-	public double calcularPrecio(int option) {//nueva corrección de clase, aplicado. 
-	    double precioBase = 0;
-	    double precioEspecial = 0;
+	public float calcularPrecio(byte option) {//nueva corrección de clase, aplicado. 
+	    float precioBase = 0;
+	    float precioEspecial = 0;
 
 	    switch (option) {
 	        case 1:
@@ -68,16 +68,16 @@ public class Pizza {
 	            break;
 	    }
 	    
-	    return precioBase + precioEspecial;
+	    return (float)precioBase + precioEspecial;
 	}
 	
-	public double calcularArea(double diameter) {
+	public double calcularArea(float diameter) {
 		
 		return Math.PI * Math.pow(diameter / 2, 2);
 		
 	}
 
-	public String toString(int i) {
+	public String toString(byte i) {
 		return "\n** Pizza Nro: " + i + "\nDiametro: " + diameter + "\nIngredientes Especiales: " + special_ingredients + "\nPrecio Pizza: " + price + "\nArea: " + area + "um";
 	}
 	

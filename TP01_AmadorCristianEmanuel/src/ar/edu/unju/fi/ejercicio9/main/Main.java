@@ -10,8 +10,8 @@ public class Main {
 		// TODO Auto-generated method stub
 		String name;
 		String code;
-		double price;
-		double off = -1d; 
+		float price;
+		float off = -1.0f; 
 		int counter = 3;
 		
 		Scanner sc = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class Main {
 			code = sc.next();
 			
 			System.out.println("Ingrese el precio: ");
-			price = sc.nextDouble();
+			price = sc.nextFloat();
 			
 			do {
 				
@@ -46,7 +46,7 @@ public class Main {
 			product.setCode(code);
 			product.setPrice(price);
 			product.setOff(off);
-			product.setOffprice(product.calcularDescuento(off));
+			product.setOffprice(product.calcularDescuento());
 			System.out.println();
 			System.out.println(product.toString());
 			

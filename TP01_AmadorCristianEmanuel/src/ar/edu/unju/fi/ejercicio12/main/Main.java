@@ -36,6 +36,7 @@ public class Main {
 	}
 
 }
+
 //Visto en clases
 //System.out.println(unaPersona.toS+ "\nSigno Zodiacal: "+unaPersona.zodiacSign(unaPersona.getDate())+ "\nEstacion: "+ unaPersona.yearStation(unaPersona.getDate())tring()+"\n Edad: "+unaPersona.years(unaPersona.getDate().get(Calendar.YEAR)));
 /*
@@ -50,12 +51,11 @@ calendario.setTime(fecha);
 unaPersona.setName("XriisEmanuel");
 unaPersona.setDate(calendario);
 
-
-
 System.out.println("año Nacimiento: "+unaPersona.getDate().get(Calendar.YEAR));
 System.out.println("mes Nacimiento: "+(1 + unaPersona.getDate().get(Calendar.MONTH)));
 System.out.println("dia Nacimiento: "+unaPersona.getDate().get(Calendar.DAY_OF_MONTH));
 
 int year = unaPersona.getDate().get(Calendar.YEAR);
 
-unaPersona.getDate().compareTo(calendario);*/
+unaPersona.getDate().compareTo(calendario);
+*/

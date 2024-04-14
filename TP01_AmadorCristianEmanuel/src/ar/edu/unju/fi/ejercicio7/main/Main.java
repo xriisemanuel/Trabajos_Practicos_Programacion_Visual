@@ -18,7 +18,7 @@ public class Main {
 		System.out.println("Registrando nuevo empleado");
 		System.out.print("Ingrese el nombre: ");
 		name = sc.next();
-		System.out.print("Ingrese el nombre: ");
+		System.out.print("Ingrese el apellido: ");
 		lastname = sc.next();
 		
 		System.out.print("Ingrese el numero de legajo: ");

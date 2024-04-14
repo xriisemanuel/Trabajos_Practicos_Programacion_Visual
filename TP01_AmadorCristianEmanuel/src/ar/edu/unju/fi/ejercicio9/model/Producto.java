@@ -4,15 +4,15 @@ public class Producto {
 	
 	private String name;
 	private String code;
-	private double price;
-	private double offprice;
-	private double off;
+	private float price;
+	private float offprice;
+	private float off;
 	
 	public Producto() {
 		
 	}
 	
-	public Producto(String name, String code, double price, double off) {
+	public Producto(String name, String code, float price, float off) {
 		super();
 		this.name = name;
 		this.code = code;
@@ -36,19 +36,19 @@ public class Producto {
 		this.code = code;
 	}
 
-	public double getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 
-	public double getOff() {
+	public float getOff() {
 		return off;
 	}
 
-	public void setOff(double off) {
+	public void setOff(float off) {
 		this.off = off;
 	}
 	
@@ -57,11 +57,11 @@ public class Producto {
 		return offprice;
 	}
 
-	public void setOffprice(double offprice) {
+	public void setOffprice(float offprice) {
 		this.offprice = offprice;
 	}
 
-	public double calcularDescuento(double off) {
+	public float calcularDescuento() {
 		
 		if (off > 0) {
 			
@@ -69,7 +69,7 @@ public class Producto {
 			
 		} else {
 			
-			return 0d;
+			return 0.0f;
 		}
 	}
 
