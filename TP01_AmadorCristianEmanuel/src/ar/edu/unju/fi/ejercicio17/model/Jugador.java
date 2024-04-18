@@ -17,7 +17,6 @@ public class Jugador {
 
 	public Jugador(String name, String lastname, LocalDate birthdate, String nacionality, float high, float weight,
 			String position) {
-		super();
 		this.name = name;
 		this.lastname = lastname;
 		this.birthdate = birthdate;
@@ -89,8 +88,8 @@ public class Jugador {
 
 	@Override
 	public String toString() {
-		return "Jugador [name=" + name + ", lastname=" + lastname + ", birthdate=" + birthdate + ", nacionality="
-				+ nacionality + ", high=" + high + ", weight=" + weight + ", position=" + position + "]";
+		return "\nDETALLE DEL JUGADOR \nNombre: " + name + "\nApellido: " + lastname + "\nFecha de Cumpleanios: " + birthdate + "\nNacionalidad: "
+				+ nacionality + "\nAltura: " + high + "\nPeso: " + weight + "\nPosicion en la cancha: " + position;
 	}
 	
 	
