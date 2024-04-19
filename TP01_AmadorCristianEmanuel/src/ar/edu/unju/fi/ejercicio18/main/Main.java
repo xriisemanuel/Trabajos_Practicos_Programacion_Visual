@@ -11,16 +11,14 @@ import ar.edu.unju.fi.ejercicio18.model.Enum_Pais;
 import ar.edu.unju.fi.ejercicio18.model.Pais;
 
 public class Main {
-	
-	public static Scanner sc = new Scanner(System.in);
 	public static String cadena, pais;
 	public static int option = 7;
 	public static float price;
 	
 	public static void main(String[] args) {
-		
+		Scanner sc = new Scanner(System.in);
 		ArrayList<Pais> paises = new ArrayList<>();
-		paises.addAll(generarPaisesAleatorios(option)); //se generan 7 paises y sus respectivos codigos
+		generarPaisesAleatorios(paises, option); //se generan 7 paises y sus respectivos codigos
 		
 		ArrayList<DestinoTuristico> destinos = new ArrayList<>();
 		
@@ -50,119 +48,55 @@ public class Main {
 				throw new IllegalArgumentException("OCURRIO UN ERROR EN EL MENU PRINCIPAL " + option);
 			}
 		} while(option != 9);
+		sc.close();
 	}
 	
-	public static void mostrarDestinosPorPais(ArrayList<DestinoTuristico> destinos, ArrayList<Pais> paises) {
-		
-		if (destinos.size() != 0) {
-			
-			DestinoTuristico x = new DestinoTuristico();
-			validarCodigo(x, paises);
-			
-			for (DestinoTuristico d: destinos) {
-				if (d.getCode().equals(x.getCode())) {
-					System.out.println(d.toString());
-				}
-			}
-		} else {
-			System.out.println("No hay destinos registrados");
-		}
-	}
-	
-	public static void mostrarPaises(ArrayList<Pais> paises) {
-		for (Pais x: paises) {
-			System.out.println(x.toString());
-		}
-	}
-	
-	public static void mostrarOrdenado(ArrayList<DestinoTuristico> destinos) {
-		
-		Collections.sort(destinos, new ComparatorDT());
-		try {
-
-			for(DestinoTuristico x: destinos) {
-				System.out.println(x.toString());
-			}
-		} catch (Exception e) {
-			System.err.println("Ocurrio un error en el ordenamiento");
-		}
-		
-	}
-	
-	public static void eliminarDestino(ArrayList<DestinoTuristico> destinos, ArrayList<Pais> paises) {
-		
-		boolean exist = false;
-		validarCadena("Nombre");
-		
-		Iterator<DestinoTuristico> iterador = destinos.iterator();
-		
-		while(iterador.hasNext()) {
-			
-			DestinoTuristico j = iterador.next();
-			
-			if (j.getName().equals(cadena)) {
-				iterador.remove();
-				System.err.println("Destino Turistico Eliminado");
-				exist = true;
-				return;
-			}
-		}
-		
-		if (!exist) {
-			System.out.println("NO EXISTE EL DESTINO INDICADO");
-		}
-	}
-	
-	public static void eliminarTodo(ArrayList<DestinoTuristico> destinos) {
-		if (destinos.removeAll(destinos)) {
-			System.out.println("Los destinos fueron eliminados "+destinos.size());
-		} else {
-			System.out.println("Los destinos son: " + destinos.size());
-		}
-	}
-	
-	public static void existeDestino(ArrayList<DestinoTuristico> destinos, ArrayList<Pais> paises) {
-		
-		boolean existe = false;
-		
-		for (DestinoTuristico x: destinos) {
-			if (x.getName().equals(cadena)) {
-				existe = true;
-				validarCodigo(x, paises);
-			}
-		}
-		if (!existe) {
-			System.err.println("No se encontro el destino ingresado, reintente");
-		}
-	}
-	
-	public static void modificarPais(ArrayList<DestinoTuristico> destinos, ArrayList<Pais> paises) {
-		validarCadena("nombre");
-		existeDestino(destinos, paises);
-	}
-	
-    public static ArrayList<Pais> generarPaisesAleatorios(int cantidad) {
-        ArrayList<Pais> paises = new ArrayList<>();
+    public static void generarPaisesAleatorios(ArrayList<Pais> paises, int cantidad) {
         for (int i = 0; i < cantidad; i++) {
-            Pais pais = generarPaisAleatorio();
-            paises.add(pais);
+            Pais pais = generarPaisAleatorio(); //se le asigna el objeto Pais()
+            paises.add(pais); //se agrega al arraylist el nuevo objeto
         }
-        return paises;
     }
 
     public static Pais generarPaisAleatorio() {
-        Enum_Pais[] valores = Enum_Pais.values();
+        Enum_Pais[] valores = Enum_Pais.values(); //Enum_Pais[] values = {AR,BR,...};
         Random random = new Random();
-        Enum_Pais paisAleatorio = valores[random.nextInt(valores.length)];
-        return new Pais(paisAleatorio.getCode(), paisAleatorio.getName());
+        Enum_Pais paisAleatorio = valores[random.nextInt(valores.length)]; //iterador aleatorio
+        return new Pais(paisAleatorio.getCode(), paisAleatorio.getName()); //devuelve un objeto Pais(codigo,nombre)
     }
-    
-    public static void mostrarTodo(ArrayList<DestinoTuristico> destinos) {
-    	for (DestinoTuristico x: destinos) {
-    		System.out.println(x.toString());
-    	}
-    }
-    
+	
+	public static void menuOptions() {
+		System.out.println("\n-> [ Menu de Opciones ~ Destinos Turisticos ]");
+		System.out.println("[1] -> Nuevo Destino");
+		System.out.println("[2] -> Mostrar Destinos Disponibles");
+		System.out.println("[3] -> Modificar Destino");
+		System.out.println("[4] -> Eliminar Todo");
+		System.out.println("[5] -> Eliminar un Destino");
+		System.out.println("[6] -> Mostrar Destinos Disponibles Ordenado");
+		System.out.println("[7] -> Mostrar Paises");
+		System.out.println("[8] -> Mostrar Destinos del Pais X");
+		System.out.println("[9] -> Salir");
+		System.out.println("[?] Ingrese una opcion: ");
+	}
+	
+	public static void selectOption(Scanner sc) {
+		boolean Bucle = true;
+		do {
+			try {
+				menuOptions();
+				option = sc.nextInt();
+				if (option < 0 || option > 9) {
+					System.err.println("Ingresaste una opcion invalida, intenta nuevamente.");
+				} else {
+					Bucle = false;
+				}
+			} catch (Exception e) {
+				System.err.println("Error, ingresa un numero valido del menu de opciones.");
+				sc.nextLine();
+			}
+		} while (Bucle);
+	}
+	
 	public static void validarFloat(String dato) {
 		
 		Scanner sc = new Scanner(System.in);
@@ -309,35 +243,97 @@ public class Main {
 		System.out.println(nuevo.toString());
 	}
 	
-	public static void menuOptions() {
-		System.out.println("\n-> [ Menu de Opciones ~ Destinos Turisticos ]");
-		System.out.println("[1] -> Nuevo Destino");
-		System.out.println("[2] -> Mostrar Destinos Disponibles");
-		System.out.println("[3] -> Modificar Destino");
-		System.out.println("[4] -> Eliminar Todo");
-		System.out.println("[5] -> Eliminar un Destino");
-		System.out.println("[6] -> Mostrar Destinos Disponibles Ordenado");
-		System.out.println("[7] -> Mostrar Paises");
-		System.out.println("[8] -> Mostrar Destinos del Pais X");
-		System.out.println("[9] -> Salir");
-		System.out.println("[?] Ingrese una opcion: ");
+    public static void mostrarTodo(ArrayList<DestinoTuristico> destinos) {
+    	if (destinos.size() != 0) {
+    		for (DestinoTuristico x: destinos) {
+        		System.out.println(x.toString());
+        	}
+    	} else {
+    		System.out.println("No hay destinos registrados");
+    	}
+    }
+	
+	public static void existeDestino(ArrayList<DestinoTuristico> destinos, ArrayList<Pais> paises) {
+		
+		boolean existe = false;
+		
+		for (DestinoTuristico x: destinos) {
+			if (x.getName().equals(cadena)) {
+				existe = true;
+				validarCodigo(x, paises); //valida y actualiza automaticamente el codigo y por ende el pais
+			}
+		}
+		if (!existe) {
+			System.err.println("No se encontro el destino ingresado, reintente");
+		}
 	}
 	
-	public static void selectOption(Scanner sc) {
-		boolean wrong = true;
-		do {
-			try {
-				menuOptions();
-				option = sc.nextInt();
-				if (option < 0 || option > 9) {
-					System.err.println("Ingresaste una opcion invalida, intenta nuevamente.");
-				} else {
-					wrong = false;
-				}
-			} catch (Exception e) {
-				System.err.println("Error, ingresa un numero valido del menu de opciones.");
-				sc.nextLine();
+	public static void modificarPais(ArrayList<DestinoTuristico> destinos, ArrayList<Pais> paises) {
+		validarCadena("nombre");
+		existeDestino(destinos, paises);
+	}
+	
+	public static void eliminarTodo(ArrayList<DestinoTuristico> destinos) {
+		if (destinos.removeAll(destinos)) {
+			System.out.println("Los destinos fueron eliminados "+destinos.size());
+		} else {
+			System.out.println("Los destinos son: " + destinos.size());
+		}
+	}
+	
+	public static void eliminarDestino(ArrayList<DestinoTuristico> destinos, ArrayList<Pais> paises) {
+		
+		boolean exist = false;
+		validarCadena("Nombre"); //importante para actualizar la variable global cadena
+		
+		Iterator<DestinoTuristico> iterador = destinos.iterator();
+		
+		while(iterador.hasNext()) {
+			
+			DestinoTuristico j = iterador.next();
+			
+			if (j.getName().equals(cadena)) { //validarCadena() actualiza el valor de cadena 
+				iterador.remove();
+				System.err.println("Destino Turistico Eliminado");
+				exist = true;
+				return; //se corta la ejecucion
 			}
-		} while (wrong);
+		}
+		
+		if (!exist) {
+			System.out.println("NO EXISTE EL DESTINO INDICADO");
+		}
+	}
+	
+	public static void mostrarOrdenado(ArrayList<DestinoTuristico> destinos) {
+		
+		Collections.sort(destinos, new ComparatorDT());
+		for(DestinoTuristico x: destinos) {
+			System.out.println(x.toString());
+		}
+		
+	}
+	
+	public static void mostrarPaises(ArrayList<Pais> paises) {
+		for (Pais x: paises) {
+			System.out.println(x.toString());
+		}
+	}
+	
+	public static void mostrarDestinosPorPais(ArrayList<DestinoTuristico> destinos, ArrayList<Pais> paises) {
+		
+		if (destinos.size() != 0) {
+			
+			DestinoTuristico x = new DestinoTuristico();
+			validarCodigo(x, paises);
+			
+			for (DestinoTuristico d: destinos) {
+				if (d.getCode().equals(x.getCode())) {
+					System.out.println(d.toString());
+				}
+			}
+		} else {
+			System.out.println("No hay destinos registrados");
+		}
 	}
 }
