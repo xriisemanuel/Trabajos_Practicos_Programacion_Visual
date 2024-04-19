@@ -115,6 +115,8 @@ public class Main {
 			} catch (Exception e) {
 				System.out.println("Debe ingresar un numero con formato: 123,4");
 				sc.next();
+			} finally {
+				System.out.println("Probando finally en la validacion de floats");
 			}
 		}while(pass);
 	}
